@@ -1,0 +1,8 @@
+%div.entry-form
+  = form_tag({:controller => 'parts', :action => 'update_entry'}, :remote => true, :class => 'form-ajax entry-item') do
+    = hidden_field_tag :ajax_handler, 'handle_name1'
+    = hidden_field_tag :day_id, day_id
+    = hidden_field_tag :member_id, member_id
+    = hidden_field_tag :status, :participate
+    = button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do
+      %i.fa.fa-circle-o.entry-circle

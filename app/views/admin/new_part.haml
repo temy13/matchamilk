@@ -1,0 +1,10 @@
+
+
+= form_for @part, :url => { :controller => :admin, :action => :create_part } do |f|
+  = f.label :name, "パート名"
+  = f.text_field :name
+
+  = f.label :specific, "固有"
+  = f.text_field :specific
+
+  = f.submit "Send"

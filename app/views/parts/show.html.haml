@@ -1,0 +1,44 @@
+%div#member-select
+  = form_tag({:controller => 'parts', :action => 'member_select'},{:id=>'member-select-form', :class=>'member-select form-group'}) do
+    -# = select_tag :origin_id, @members.all.map{|o| [o.name, o.id]}
+    - if @selected_member then
+      = select :m, :m_id, options_for_select(@members.pluck(:name, :id), :selected => @selected_member.id), {}, { class: 'form-control member-select-control' }
+    - else
+      = select :m, :m_id, @members.pluck(:name, :id), { prompt: '選択してください' },  { class: 'form-control member-select-control' }
+    -# = submit_tag "指定", :class=> "btn btn-primary"
+
+= form_for @member,  html: {class: 'form-group'} do |f|
+  /= f.label :name, "名前"
+  = f.text_field :name, :placeholder => "追加するなら名前をここに", :class => "member-add-form member-add-input form-control"
+  = f.hidden_field :part_id, :value => @part.id
+
+  = f.submit "追加", :class=> "member-add-form member-add-submit btn form-control"
+
+%ul.days.list-group
+  - @days.each do |day|
+    %li{ :id => "day-#{day.id}", :class => "day list-group-item"}
+      %div{ :id => "dayinfo-#{day.id}", :class => "dayinfo"}
+        %div.daydate
+          = I18n.l  Date.parse(day.p_date.to_s), :format => :custom
+        %div.daycomment
+          = day.comment
+      %div.entryinfo
+        - unless @h_entries.key?(day.id) then
+          - next
+        - if @selected_member then
+          %div{id: "member-#{@selected_member.id}-day-#{day.id}-forms", class: "entry-form-wrapper"}
+            = render "entry_info", day_id: day.id, member_id: @selected_member.id, status: @h_entries[day.id][:status]
+        -# = render partial: "entry_info", locals: { day_id: day.id, member_id: @selected_member.id, status: @h_entries[day.id]}
+      %ul{ :id => "dayinfo-#{day.id}-detail", :class => "list-group dayinfo-detail"}
+        %li.circle-mark.list-group-item
+          %i.fa.fa-circle-o
+            = @h_entries[day.id][:participate].length
+        %li.triangle-mark.list-group-item
+          %i.fa.fa-exclamation-triangle
+            = @h_entries[day.id][:late].length
+        %li.circle-times.list-group-item
+          %i.fa.fa-times
+            = @h_entries[day.id][:absence].length
+        %li.circle-question.list-group-item
+          %i.fa.fa-question-circle
+            = @h_entries[day.id][:undefined].length

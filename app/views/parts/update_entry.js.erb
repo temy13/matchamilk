@@ -1,0 +1,1 @@
+$('#' + '<%= j "member-#{@entry.member_id}-day-#{@entry.day_id}-forms" %>').html('<%=j render partial: "entry_info", locals: { day_id: @entry.day_id, member_id: @entry.member_id, status: @entry.status} %>');

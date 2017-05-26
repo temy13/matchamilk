@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: days
+#
+#  id         :integer          not null, primary key
+#  p_date     :datetime
+#  comment    :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  p_date: 2017-04-09 20:47:34
+  comment: MyString
+
+two:
+  p_date: 2017-04-09 20:47:34
+  comment: MyString

@@ -1,0 +1,19 @@
+- if status.to_s == "undefined" then
+  = render "participate_form", day_id: day_id, member_id: member_id
+  = render "late_form", day_id: day_id, member_id: member_id
+  = render "absence_form", day_id: day_id, member_id: member_id
+- elsif status.to_s == "participate" then
+  %div.selected-entry.entry-item.entry-circle.selected-circle
+    %i.fa.fa-circle-o
+  = render "late_form", day_id: day_id, member_id: member_id
+  = render "absence_form", day_id: day_id, member_id: member_id
+- elsif status.to_s == "late" then
+  = render "participate_form", day_id: day_id, member_id: member_id
+  %div.selected-entry.entry-item.entry-caret.selected-triangle
+    %i.fa.fa-exclamation-triangle
+  = render "absence_form", day_id: day_id, member_id: member_id
+- elsif status.to_s == "absence" then
+  = render "participate_form", day_id: day_id, member_id: member_id
+  = render "late_form", day_id: day_id, member_id: member_id
+  %div.selected-entry.entry-item.entry-times.selected-times
+    %i.fa.fa-times

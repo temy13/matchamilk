@@ -1,0 +1,6 @@
+%ul.parts.list-group
+  - @parts.each do |part|
+    %li.part.list-group-item
+      = link_to part.name, { :controller => :parts, :action => :show, :id => part.specific }
+
+= link_to '練習日を追加する', new_day_path

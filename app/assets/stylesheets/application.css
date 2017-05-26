@@ -1,0 +1,120 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ = require font-awesome
+ */
+
+
+body, #wrapper{
+  /*width:auto;*/
+  /*width:667px;*/
+  overflow: hidden;
+  /*font-size:35px;*/
+}
+
+.head{
+  background-color: blue;
+  height:50px;
+  margin-bottom:5px;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none transparent;
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  box-sizing: content-box;
+}
+
+li{
+  list-style-type: none;
+}
+
+.member-select-control{
+  font-size: 20px;
+  height: 30px;
+  width: auto;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  min-width:50%;
+}
+.member-add-form{
+  display: inline-block;
+}
+.member-add-input{
+  width:80%
+}
+.member-add-submit{
+  width:18%
+}
+.entry-form-wrapper{
+  display: inline-block;
+}
+.entry-form{
+  display: inline-block;
+}
+.entry-item{
+  display: inline-block;
+  vertical-align: middle;
+}
+.dayinfo{
+  display: inline-block;
+  width:40%;
+  vertical-align: middle;
+}
+.daydate{
+  margin-bottom: 2px;
+}
+.entryinfo{
+  display: inline-block;
+  vertical-align: middle;
+}
+.selected-entry{
+  padding: 0px 11px;
+  font-size:35px;
+}
+.entry-circle{
+  font-size:30px;
+}
+.entry-caret{
+  font-size:30px;
+}
+.entry-times{
+  font-size:30px;
+}
+.selected-circle, .circle-mark{
+  color: #3333FF
+}
+.selected-triangle, .circle-triangle{
+  color: #FFAA33
+}
+.selected-times, .circle-times{
+  color: #FF3333
+}
+.circle-question{
+  color: #33FF33
+}
+.dayinfo-detail{
+  display: none;
+  margin-top:5px;
+  font-size:25px;
+}
