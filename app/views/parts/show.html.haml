@@ -23,11 +23,10 @@
         %div.daycomment
           = day.comment
       %div.entryinfo
-        - unless @h_entries.key?(day.id) then
-          - next
-        - if @selected_member then
-          %div{id: "member-#{@selected_member.id}-day-#{day.id}-forms", class: "entry-form-wrapper"}
-            = render "entry_info", day_id: day.id, member_id: @selected_member.id, status: @h_entries[day.id][:status]
+        - if @h_entries.key?(day.id) then
+          - if @selected_member then
+            %div{id: "member-#{@selected_member.id}-day-#{day.id}-forms", class: "entry-form-wrapper"}
+              = render "entry_info", day_id: day.id, member_id: @selected_member.id, status: @h_entries[day.id][:status]
         -# = render partial: "entry_info", locals: { day_id: day.id, member_id: @selected_member.id, status: @h_entries[day.id]}
       %ul{ :id => "dayinfo-#{day.id}-detail", :class => "list-group dayinfo-detail"}
         %li.circle-mark.list-group-item
